@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libinyu.book.mapper.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Device">
+    <id column="device_id" jdbcType="INTEGER" property="device_id" />
+    <result column="lab_id" jdbcType="INTEGER" property="lab_id" />
+    <result column="device_name" jdbcType="VARCHAR" property="device_name" />
+    <result column="device_status" jdbcType="VARCHAR" property="device_status" />
+    <result column="device_price" jdbcType="VARCHAR" property="device_price" />
+    <result column="device_purchase_date" jdbcType="TIMESTAMP" property="device_purchase_date" />
+    <result column="device_open" jdbcType="BIT" property="device_open" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    device_id, lab_id, device_name, device_status, device_price, device_purchase_date, 
+    device_open
+  </sql>
+  <select id="selectByExample" parameterType="com.libinyu.book.pojo.DeviceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from device
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device
+    where device_id = #{device_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from device
+    where device_id = #{device_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="device_id" keyProperty="device_id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
+    insert into device (lab_id, device_name, device_status, 
+      device_price, device_purchase_date, device_open
+      )
+    values (#{lab_id,jdbcType=INTEGER}, #{device_name,jdbcType=VARCHAR}, #{device_status,jdbcType=VARCHAR}, 
+      #{device_price,jdbcType=VARCHAR}, #{device_purchase_date,jdbcType=TIMESTAMP}, #{device_open,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="device_id" keyProperty="device_id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
+    insert into device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lab_id != null">
+        lab_id,
+      </if>
+      <if test="device_name != null">
+        device_name,
+      </if>
+      <if test="device_status != null">
+        device_status,
+      </if>
+      <if test="device_price != null">
+        device_price,
+      </if>
+      <if test="device_purchase_date != null">
+        device_purchase_date,
+      </if>
+      <if test="device_open != null">
+        device_open,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lab_id != null">
+        #{lab_id,jdbcType=INTEGER},
+      </if>
+      <if test="device_name != null">
+        #{device_name,jdbcType=VARCHAR},
+      </if>
+      <if test="device_status != null">
+        #{device_status,jdbcType=VARCHAR},
+      </if>
+      <if test="device_price != null">
+        #{device_price,jdbcType=VARCHAR},
+      </if>
+      <if test="device_purchase_date != null">
+        #{device_purchase_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device_open != null">
+        #{device_open,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Device">
+    update device
+    <set>
+      <if test="lab_id != null">
+        lab_id = #{lab_id,jdbcType=INTEGER},
+      </if>
+      <if test="device_name != null">
+        device_name = #{device_name,jdbcType=VARCHAR},
+      </if>
+      <if test="device_status != null">
+        device_status = #{device_status,jdbcType=VARCHAR},
+      </if>
+      <if test="device_price != null">
+        device_price = #{device_price,jdbcType=VARCHAR},
+      </if>
+      <if test="device_purchase_date != null">
+        device_purchase_date = #{device_purchase_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device_open != null">
+        device_open = #{device_open,jdbcType=BIT},
+      </if>
+    </set>
+    where device_id = #{device_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Device">
+    update device
+    set lab_id = #{lab_id,jdbcType=INTEGER},
+      device_name = #{device_name,jdbcType=VARCHAR},
+      device_status = #{device_status,jdbcType=VARCHAR},
+      device_price = #{device_price,jdbcType=VARCHAR},
+      device_purchase_date = #{device_purchase_date,jdbcType=TIMESTAMP},
+      device_open = #{device_open,jdbcType=BIT}
+    where device_id = #{device_id,jdbcType=INTEGER}
+  </update>
+</mapper>
