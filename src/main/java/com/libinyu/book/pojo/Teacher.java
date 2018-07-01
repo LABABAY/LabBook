@@ -1,103 +1,103 @@
 package com.libinyu.book.pojo;
 
 public class Teacher {
-    private Integer teacher_id;
+    private Integer id;
 
-    private String teacher_name;
+    private String name;
 
-    private String teacher_sex;
+    private String sex;
 
-    private String teacher_title;
+    private String title;
 
-    private String teacher_image;
+    private String image;
 
-    private String teacher_telphone;
+    private String telphone;
 
-    private String teacher_email;
+    private String email;
 
-    private String teacher_introduction;
+    private String introduction;
 
-    private String teacher_account;
+    private String account;
 
-    private String teacher_password;
+    private String password;
 
-    public Integer getTeacher_id() {
-        return teacher_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setTeacher_id(Integer teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getTeacher_name() {
-        return teacher_name;
+    public String getName() {
+        return name;
     }
 
-    public void setTeacher_name(String teacher_name) {
-        this.teacher_name = teacher_name == null ? null : teacher_name.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getTeacher_sex() {
-        return teacher_sex;
+    public String getSex() {
+        return sex;
     }
 
-    public void setTeacher_sex(String teacher_sex) {
-        this.teacher_sex = teacher_sex == null ? null : teacher_sex.trim();
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
-    public String getTeacher_title() {
-        return teacher_title;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTeacher_title(String teacher_title) {
-        this.teacher_title = teacher_title == null ? null : teacher_title.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
-    public String getTeacher_image() {
-        return teacher_image;
+    public String getImage() {
+        return image;
     }
 
-    public void setTeacher_image(String teacher_image) {
-        this.teacher_image = teacher_image == null ? null : teacher_image.trim();
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
     }
 
-    public String getTeacher_telphone() {
-        return teacher_telphone;
+    public String getTelphone() {
+        return telphone;
     }
 
-    public void setTeacher_telphone(String teacher_telphone) {
-        this.teacher_telphone = teacher_telphone == null ? null : teacher_telphone.trim();
+    public void setTelphone(String telphone) {
+        this.telphone = telphone == null ? null : telphone.trim();
     }
 
-    public String getTeacher_email() {
-        return teacher_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTeacher_email(String teacher_email) {
-        this.teacher_email = teacher_email == null ? null : teacher_email.trim();
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 
-    public String getTeacher_introduction() {
-        return teacher_introduction;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setTeacher_introduction(String teacher_introduction) {
-        this.teacher_introduction = teacher_introduction == null ? null : teacher_introduction.trim();
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction == null ? null : introduction.trim();
     }
 
-    public String getTeacher_account() {
-        return teacher_account;
+    public String getAccount() {
+        return account;
     }
 
-    public void setTeacher_account(String teacher_account) {
-        this.teacher_account = teacher_account == null ? null : teacher_account.trim();
+    public void setAccount(String account) {
+        this.account = account == null ? null : account.trim();
     }
 
-    public String getTeacher_password() {
-        return teacher_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setTeacher_password(String teacher_password) {
-        this.teacher_password = teacher_password == null ? null : teacher_password.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 }

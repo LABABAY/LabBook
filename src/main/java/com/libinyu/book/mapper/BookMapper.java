@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.BookExample;
 import java.util.List;
 
 public interface BookMapper {
-    int deleteByPrimaryKey(Integer book_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Book record);
 
@@ -13,7 +13,7 @@ public interface BookMapper {
 
     List<Book> selectByExample(BookExample example);
 
-    Book selectByPrimaryKey(Integer book_id);
+    Book selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Book record);
 

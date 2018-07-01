@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.AdminExample;
 import java.util.List;
 
 public interface AdminMapper {
-    int deleteByPrimaryKey(Integer admin_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Admin record);
 
@@ -13,7 +13,7 @@ public interface AdminMapper {
 
     List<Admin> selectByExample(AdminExample example);
 
-    Admin selectByPrimaryKey(Integer admin_id);
+    Admin selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Admin record);
 

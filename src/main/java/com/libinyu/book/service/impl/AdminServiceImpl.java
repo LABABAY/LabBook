@@ -19,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Admin> list() {
         AdminExample example = new AdminExample();
-        example.setOrderByClause("admin_id desc");
+        example.setOrderByClause("id desc");
         return adminMapper.selectByExample(example);
     }
 
@@ -42,4 +42,15 @@ public class AdminServiceImpl implements AdminService {
     public void update(Admin admin) {
         adminMapper.updateByPrimaryKeySelective(admin);
     }
+    @Override
+    public Admin get(String name, String password) {
+        AdminExample example = new AdminExample();
+        example.createCriteria().andAccountEqualTo(name).andPasswordEqualTo((password));
+        List<Admin> result = adminMapper.selectByExample(example);
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result.get(0);
+    }
 }
+

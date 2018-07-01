@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.LabMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Lab">
-    <id column="lab_id" jdbcType="INTEGER" property="lab_id" />
-    <result column="lab_name" jdbcType="VARCHAR" property="lab_name" />
-    <result column="lab_number" jdbcType="VARCHAR" property="lab_number" />
-    <result column="lab_open" jdbcType="BIT" property="lab_open" />
-    <result column="lab_open_time" jdbcType="TIME" property="lab_open_time" />
-    <result column="lab_device_number" jdbcType="VARCHAR" property="lab_device_number" />
-    <result column="lab_seat_remain" jdbcType="VARCHAR" property="lab_seat_remain" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="open" jdbcType="VARCHAR" property="open" />
+    <result column="opentime" jdbcType="VARCHAR" property="opentime" />
+    <result column="device" jdbcType="VARCHAR" property="device" />
+    <result column="seat" jdbcType="VARCHAR" property="seat" />
+    <result column="closetime" jdbcType="VARCHAR" property="closetime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -40,7 +41,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    lab_id, lab_name, lab_number, lab_open, lab_open_time, lab_device_number, lab_seat_remain
+    id, name, number, open, opentime, device, seat, closetime
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.LabExample" resultMap="BaseResultMap">
     select
@@ -61,95 +62,105 @@
     select 
     <include refid="Base_Column_List" />
     from lab
-    where lab_id = #{lab_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from lab
-    where lab_id = #{lab_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="lab_id" keyProperty="lab_id" parameterType="com.libinyu.book.pojo.Lab" useGeneratedKeys="true">
-    insert into lab (lab_name, lab_number, lab_open, 
-      lab_open_time, lab_device_number, lab_seat_remain
-      )
-    values (#{lab_name,jdbcType=VARCHAR}, #{lab_number,jdbcType=VARCHAR}, #{lab_open,jdbcType=BIT}, 
-      #{lab_open_time,jdbcType=TIME}, #{lab_device_number,jdbcType=VARCHAR}, #{lab_seat_remain,jdbcType=VARCHAR}
-      )
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Lab" useGeneratedKeys="true">
+    insert into lab (name, number, open, 
+      opentime, device, seat, 
+      closetime)
+    values (#{name,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{open,jdbcType=VARCHAR}, 
+      #{opentime,jdbcType=VARCHAR}, #{device,jdbcType=VARCHAR}, #{seat,jdbcType=VARCHAR}, 
+      #{closetime,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="lab_id" keyProperty="lab_id" parameterType="com.libinyu.book.pojo.Lab" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Lab" useGeneratedKeys="true">
     insert into lab
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="lab_name != null">
-        lab_name,
+      <if test="name != null">
+        name,
       </if>
-      <if test="lab_number != null">
-        lab_number,
+      <if test="number != null">
+        number,
       </if>
-      <if test="lab_open != null">
-        lab_open,
+      <if test="open != null">
+        open,
       </if>
-      <if test="lab_open_time != null">
-        lab_open_time,
+      <if test="opentime != null">
+        opentime,
       </if>
-      <if test="lab_device_number != null">
-        lab_device_number,
+      <if test="device != null">
+        device,
       </if>
-      <if test="lab_seat_remain != null">
-        lab_seat_remain,
+      <if test="seat != null">
+        seat,
+      </if>
+      <if test="closetime != null">
+        closetime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="lab_name != null">
-        #{lab_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="lab_number != null">
-        #{lab_number,jdbcType=VARCHAR},
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
       </if>
-      <if test="lab_open != null">
-        #{lab_open,jdbcType=BIT},
+      <if test="open != null">
+        #{open,jdbcType=VARCHAR},
       </if>
-      <if test="lab_open_time != null">
-        #{lab_open_time,jdbcType=TIME},
+      <if test="opentime != null">
+        #{opentime,jdbcType=VARCHAR},
       </if>
-      <if test="lab_device_number != null">
-        #{lab_device_number,jdbcType=VARCHAR},
+      <if test="device != null">
+        #{device,jdbcType=VARCHAR},
       </if>
-      <if test="lab_seat_remain != null">
-        #{lab_seat_remain,jdbcType=VARCHAR},
+      <if test="seat != null">
+        #{seat,jdbcType=VARCHAR},
+      </if>
+      <if test="closetime != null">
+        #{closetime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Lab">
     update lab
     <set>
-      <if test="lab_name != null">
-        lab_name = #{lab_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="lab_number != null">
-        lab_number = #{lab_number,jdbcType=VARCHAR},
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
       </if>
-      <if test="lab_open != null">
-        lab_open = #{lab_open,jdbcType=BIT},
+      <if test="open != null">
+        open = #{open,jdbcType=VARCHAR},
       </if>
-      <if test="lab_open_time != null">
-        lab_open_time = #{lab_open_time,jdbcType=TIME},
+      <if test="opentime != null">
+        opentime = #{opentime,jdbcType=VARCHAR},
       </if>
-      <if test="lab_device_number != null">
-        lab_device_number = #{lab_device_number,jdbcType=VARCHAR},
+      <if test="device != null">
+        device = #{device,jdbcType=VARCHAR},
       </if>
-      <if test="lab_seat_remain != null">
-        lab_seat_remain = #{lab_seat_remain,jdbcType=VARCHAR},
+      <if test="seat != null">
+        seat = #{seat,jdbcType=VARCHAR},
+      </if>
+      <if test="closetime != null">
+        closetime = #{closetime,jdbcType=VARCHAR},
       </if>
     </set>
-    where lab_id = #{lab_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Lab">
     update lab
-    set lab_name = #{lab_name,jdbcType=VARCHAR},
-      lab_number = #{lab_number,jdbcType=VARCHAR},
-      lab_open = #{lab_open,jdbcType=BIT},
-      lab_open_time = #{lab_open_time,jdbcType=TIME},
-      lab_device_number = #{lab_device_number,jdbcType=VARCHAR},
-      lab_seat_remain = #{lab_seat_remain,jdbcType=VARCHAR}
-    where lab_id = #{lab_id,jdbcType=INTEGER}
+    set name = #{name,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      open = #{open,jdbcType=VARCHAR},
+      opentime = #{opentime,jdbcType=VARCHAR},
+      device = #{device,jdbcType=VARCHAR},
+      seat = #{seat,jdbcType=VARCHAR},
+      closetime = #{closetime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

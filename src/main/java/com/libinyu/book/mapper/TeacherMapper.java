@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.TeacherExample;
 import java.util.List;
 
 public interface TeacherMapper {
-    int deleteByPrimaryKey(Integer teacher_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Teacher record);
 
@@ -13,7 +13,7 @@ public interface TeacherMapper {
 
     List<Teacher> selectByExample(TeacherExample example);
 
-    Teacher selectByPrimaryKey(Integer teacher_id);
+    Teacher selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Teacher record);
 

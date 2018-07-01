@@ -17,4 +17,5 @@ public interface StudentService {
     Student get(int id);
 
     void update(Student student);
+    Student get(String name, String password);
 }

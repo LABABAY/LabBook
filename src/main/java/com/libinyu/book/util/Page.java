@@ -2,7 +2,7 @@ package com.libinyu.book.util;
 
 public class Page {
 
-    private static final int defaultCount = 5; //默认每页显示5条
+    private static final int defaultCount = 10; //默认每页显示5条
     private int start; //开始页数
     private int count; //每页显示个数
     private int total; //总个数
@@ -67,9 +67,7 @@ public class Page {
             last = total - total % count;
         }
         last = last < 0 ? 0 : last;
-
         return last;
-
     }
 
     @Override

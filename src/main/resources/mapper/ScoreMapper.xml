@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.ScoreMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Score">
-    <id column="score_id" jdbcType="INTEGER" property="score_id" />
-    <result column="score_regular" jdbcType="VARCHAR" property="score_regular" />
-    <result column="score_experiment" jdbcType="VARCHAR" property="score_experiment" />
-    <result column="score_total" jdbcType="VARCHAR" property="score_total" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="attend" jdbcType="VARCHAR" property="attend" />
+    <result column="experiment" jdbcType="VARCHAR" property="experiment" />
+    <result column="total" jdbcType="VARCHAR" property="total" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -37,7 +37,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    score_id, score_regular, score_experiment, score_total
+    id, attend, experiment, total
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.ScoreExample" resultMap="BaseResultMap">
     select
@@ -58,63 +58,63 @@
     select 
     <include refid="Base_Column_List" />
     from score
-    where score_id = #{score_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from score
-    where score_id = #{score_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="score_id" keyProperty="score_id" parameterType="com.libinyu.book.pojo.Score" useGeneratedKeys="true">
-    insert into score (score_regular, score_experiment, 
-      score_total)
-    values (#{score_regular,jdbcType=VARCHAR}, #{score_experiment,jdbcType=VARCHAR}, 
-      #{score_total,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Score" useGeneratedKeys="true">
+    insert into score (attend, experiment, total
+      )
+    values (#{attend,jdbcType=VARCHAR}, #{experiment,jdbcType=VARCHAR}, #{total,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" keyColumn="score_id" keyProperty="score_id" parameterType="com.libinyu.book.pojo.Score" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Score" useGeneratedKeys="true">
     insert into score
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="score_regular != null">
-        score_regular,
+      <if test="attend != null">
+        attend,
       </if>
-      <if test="score_experiment != null">
-        score_experiment,
+      <if test="experiment != null">
+        experiment,
       </if>
-      <if test="score_total != null">
-        score_total,
+      <if test="total != null">
+        total,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="score_regular != null">
-        #{score_regular,jdbcType=VARCHAR},
+      <if test="attend != null">
+        #{attend,jdbcType=VARCHAR},
       </if>
-      <if test="score_experiment != null">
-        #{score_experiment,jdbcType=VARCHAR},
+      <if test="experiment != null">
+        #{experiment,jdbcType=VARCHAR},
       </if>
-      <if test="score_total != null">
-        #{score_total,jdbcType=VARCHAR},
+      <if test="total != null">
+        #{total,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Score">
     update score
     <set>
-      <if test="score_regular != null">
-        score_regular = #{score_regular,jdbcType=VARCHAR},
+      <if test="attend != null">
+        attend = #{attend,jdbcType=VARCHAR},
       </if>
-      <if test="score_experiment != null">
-        score_experiment = #{score_experiment,jdbcType=VARCHAR},
+      <if test="experiment != null">
+        experiment = #{experiment,jdbcType=VARCHAR},
       </if>
-      <if test="score_total != null">
-        score_total = #{score_total,jdbcType=VARCHAR},
+      <if test="total != null">
+        total = #{total,jdbcType=VARCHAR},
       </if>
     </set>
-    where score_id = #{score_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Score">
     update score
-    set score_regular = #{score_regular,jdbcType=VARCHAR},
-      score_experiment = #{score_experiment,jdbcType=VARCHAR},
-      score_total = #{score_total,jdbcType=VARCHAR}
-    where score_id = #{score_id,jdbcType=INTEGER}
+    set attend = #{attend,jdbcType=VARCHAR},
+      experiment = #{experiment,jdbcType=VARCHAR},
+      total = #{total,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

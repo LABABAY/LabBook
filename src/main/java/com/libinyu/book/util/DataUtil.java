@@ -33,7 +33,7 @@ public class DataUtil {
         try (Connection c = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/book?characterEncoding=UTF-8",
                 "root", "admin");
              Statement s = c.createStatement()) {
-            String sql = "delete from " + table + " where " + table + "_id > 0";
+            String sql = "delete from " + table + " where id > 0";
             s.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class DataUtil {
         book.add("lab");
         book.add("device");
         book.add("score");
-        book.add("data_record");
+        book.add("record");
         book.add("book");
         book.add("student_book");
 //        删除是并发，所以加同步锁,否则有外键约束

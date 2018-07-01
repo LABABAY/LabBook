@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.ScoreExample;
 import java.util.List;
 
 public interface ScoreMapper {
-    int deleteByPrimaryKey(Integer score_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Score record);
 
@@ -13,7 +13,7 @@ public interface ScoreMapper {
 
     List<Score> selectByExample(ScoreExample example);
 
-    Score selectByPrimaryKey(Integer score_id);
+    Score selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Score record);
 

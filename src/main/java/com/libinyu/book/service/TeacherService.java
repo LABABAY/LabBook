@@ -1,5 +1,6 @@
 package com.libinyu.book.service;
 
+import com.libinyu.book.pojo.Student;
 import com.libinyu.book.pojo.Teacher;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface TeacherService {
     Teacher get(int id);
 
     void update(Teacher teacher);
+    Teacher get(String name, String password);
+
 }

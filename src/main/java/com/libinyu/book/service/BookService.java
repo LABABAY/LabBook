@@ -17,4 +17,14 @@ public interface BookService {
     Book get(int id);
 
     void update(Book book);
+
+    List<Book> adminVerify();
+
+    String check(Book book);
+
+    List<Book> getStudent(int id);
+
+    List<Book> getTeacherVerify(int id);
+
+    List<Book> getTeacherUnVerify(int id);
 }

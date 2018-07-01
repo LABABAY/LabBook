@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.AdminMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Admin">
-    <id column="admin_id" jdbcType="INTEGER" property="admin_id" />
-    <result column="admin_name" jdbcType="VARCHAR" property="admin_name" />
-    <result column="admin_sex" jdbcType="VARCHAR" property="admin_sex" />
-    <result column="admin_image" jdbcType="VARCHAR" property="admin_image" />
-    <result column="admin_telphone" jdbcType="VARCHAR" property="admin_telphone" />
-    <result column="admin_email" jdbcType="VARCHAR" property="admin_email" />
-    <result column="admin_account" jdbcType="VARCHAR" property="admin_account" />
-    <result column="admin_password" jdbcType="VARCHAR" property="admin_password" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -41,8 +41,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    admin_id, admin_name, admin_sex, admin_image, admin_telphone, admin_email, admin_account, 
-    admin_password
+    id, name, sex, image, telphone, email, account, password
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.AdminExample" resultMap="BaseResultMap">
     select
@@ -63,105 +62,105 @@
     select 
     <include refid="Base_Column_List" />
     from admin
-    where admin_id = #{admin_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
-    where admin_id = #{admin_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="admin_id" keyProperty="admin_id" parameterType="com.libinyu.book.pojo.Admin" useGeneratedKeys="true">
-    insert into admin (admin_name, admin_sex, admin_image, 
-      admin_telphone, admin_email, admin_account, 
-      admin_password)
-    values (#{admin_name,jdbcType=VARCHAR}, #{admin_sex,jdbcType=VARCHAR}, #{admin_image,jdbcType=VARCHAR}, 
-      #{admin_telphone,jdbcType=VARCHAR}, #{admin_email,jdbcType=VARCHAR}, #{admin_account,jdbcType=VARCHAR}, 
-      #{admin_password,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Admin" useGeneratedKeys="true">
+    insert into admin (name, sex, image, 
+      telphone, email, account, 
+      password)
+    values (#{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{telphone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="admin_id" keyProperty="admin_id" parameterType="com.libinyu.book.pojo.Admin" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Admin" useGeneratedKeys="true">
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="admin_name != null">
-        admin_name,
+      <if test="name != null">
+        name,
       </if>
-      <if test="admin_sex != null">
-        admin_sex,
+      <if test="sex != null">
+        sex,
       </if>
-      <if test="admin_image != null">
-        admin_image,
+      <if test="image != null">
+        image,
       </if>
-      <if test="admin_telphone != null">
-        admin_telphone,
+      <if test="telphone != null">
+        telphone,
       </if>
-      <if test="admin_email != null">
-        admin_email,
+      <if test="email != null">
+        email,
       </if>
-      <if test="admin_account != null">
-        admin_account,
+      <if test="account != null">
+        account,
       </if>
-      <if test="admin_password != null">
-        admin_password,
+      <if test="password != null">
+        password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="admin_name != null">
-        #{admin_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="admin_sex != null">
-        #{admin_sex,jdbcType=VARCHAR},
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="admin_image != null">
-        #{admin_image,jdbcType=VARCHAR},
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
       </if>
-      <if test="admin_telphone != null">
-        #{admin_telphone,jdbcType=VARCHAR},
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="admin_email != null">
-        #{admin_email,jdbcType=VARCHAR},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
-      <if test="admin_account != null">
-        #{admin_account,jdbcType=VARCHAR},
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
       </if>
-      <if test="admin_password != null">
-        #{admin_password,jdbcType=VARCHAR},
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Admin">
     update admin
     <set>
-      <if test="admin_name != null">
-        admin_name = #{admin_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="admin_sex != null">
-        admin_sex = #{admin_sex,jdbcType=VARCHAR},
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="admin_image != null">
-        admin_image = #{admin_image,jdbcType=VARCHAR},
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
       </if>
-      <if test="admin_telphone != null">
-        admin_telphone = #{admin_telphone,jdbcType=VARCHAR},
+      <if test="telphone != null">
+        telphone = #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="admin_email != null">
-        admin_email = #{admin_email,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="admin_account != null">
-        admin_account = #{admin_account,jdbcType=VARCHAR},
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
       </if>
-      <if test="admin_password != null">
-        admin_password = #{admin_password,jdbcType=VARCHAR},
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
       </if>
     </set>
-    where admin_id = #{admin_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Admin">
     update admin
-    set admin_name = #{admin_name,jdbcType=VARCHAR},
-      admin_sex = #{admin_sex,jdbcType=VARCHAR},
-      admin_image = #{admin_image,jdbcType=VARCHAR},
-      admin_telphone = #{admin_telphone,jdbcType=VARCHAR},
-      admin_email = #{admin_email,jdbcType=VARCHAR},
-      admin_account = #{admin_account,jdbcType=VARCHAR},
-      admin_password = #{admin_password,jdbcType=VARCHAR}
-    where admin_id = #{admin_id,jdbcType=INTEGER}
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

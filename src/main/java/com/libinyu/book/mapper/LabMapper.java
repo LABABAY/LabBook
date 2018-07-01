@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.LabExample;
 import java.util.List;
 
 public interface LabMapper {
-    int deleteByPrimaryKey(Integer lab_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Lab record);
 
@@ -13,7 +13,7 @@ public interface LabMapper {
 
     List<Lab> selectByExample(LabExample example);
 
-    Lab selectByPrimaryKey(Integer lab_id);
+    Lab selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Lab record);
 

@@ -21,7 +21,7 @@ public class MybatisGenerator {
 //    前者只是更新新的model中不为空的字段。
 //    后者则会将为空的字段在数据库中置为NULL。
     public static void main(String[] args) throws Exception {
-        String today = "2018-05-23";
+        String today = "2018-05-28";
 
         SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
         Date now =sdf.parse(today);

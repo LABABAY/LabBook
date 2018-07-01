@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface DeviceService {
     List<Device> list();
+    List<Device> list(int id );
 
     void add(Device device);
 
@@ -17,4 +18,6 @@ public interface DeviceService {
     Device get(int id);
 
     void update(Device admin);
+
+    List<Device> open(int id);
 }

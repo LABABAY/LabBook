@@ -3,193 +3,253 @@ package com.libinyu.book.pojo;
 import java.util.Date;
 
 public class Book {
-    private Integer book_id;
+    private Integer id;
 
-    private Integer score_id;
+    private Integer scid;
 
-    private Integer lab_id;
+    private Integer lid;
 
-    private Integer teacher_id;
+    private Integer tid;
 
-    private Integer admin_id;
+    private Integer aid;
 
-    private String book_project_title;
+    private String title;
 
-    private String book_project_detail;
+    private String detail;
 
-    private Date book_experiment_date;
+    private Date startdate;
 
-    private String book_human_number;
+    private String people;
 
-    private String book_teacher_verify;
+    private String teacherverify;
 
-    private String book_admin_verify;
+    private String adminverify;
 
-    private String book_report_score;
+    private String reportscore;
 
-    private String book_enter_password;
+    private String password;
 
-    private Date book_enter_date;
+    private Date enterdate;
 
-    private Date book_leave_date;
+    private Date leavedate;
 
-    private Boolean book_confirm;
+    private String confirm;
 
-    private String book_status;
+    private String status;
 
-    private String book_guide;
+    private String guide;
 
-    private String book_report_task;
+    private String report;
 
-    public Integer getBook_id() {
-        return book_id;
+    private Integer did;
+
+    private String booklab;
+
+    private String booktea;
+
+    private String bookdevice;
+
+    private Date enddate;
+
+    private String bookstudent;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setBook_id(Integer book_id) {
-        this.book_id = book_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getScore_id() {
-        return score_id;
+    public Integer getScid() {
+        return scid;
     }
 
-    public void setScore_id(Integer score_id) {
-        this.score_id = score_id;
+    public void setScid(Integer scid) {
+        this.scid = scid;
     }
 
-    public Integer getLab_id() {
-        return lab_id;
+    public Integer getLid() {
+        return lid;
     }
 
-    public void setLab_id(Integer lab_id) {
-        this.lab_id = lab_id;
+    public void setLid(Integer lid) {
+        this.lid = lid;
     }
 
-    public Integer getTeacher_id() {
-        return teacher_id;
+    public Integer getTid() {
+        return tid;
     }
 
-    public void setTeacher_id(Integer teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setTid(Integer tid) {
+        this.tid = tid;
     }
 
-    public Integer getAdmin_id() {
-        return admin_id;
+    public Integer getAid() {
+        return aid;
     }
 
-    public void setAdmin_id(Integer admin_id) {
-        this.admin_id = admin_id;
+    public void setAid(Integer aid) {
+        this.aid = aid;
     }
 
-    public String getBook_project_title() {
-        return book_project_title;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBook_project_title(String book_project_title) {
-        this.book_project_title = book_project_title == null ? null : book_project_title.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
-    public String getBook_project_detail() {
-        return book_project_detail;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setBook_project_detail(String book_project_detail) {
-        this.book_project_detail = book_project_detail == null ? null : book_project_detail.trim();
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 
-    public Date getBook_experiment_date() {
-        return book_experiment_date;
+    public Date getStartdate() {
+        return startdate;
     }
 
-    public void setBook_experiment_date(Date book_experiment_date) {
-        this.book_experiment_date = book_experiment_date;
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
     }
 
-    public String getBook_human_number() {
-        return book_human_number;
+    public String getPeople() {
+        return people;
     }
 
-    public void setBook_human_number(String book_human_number) {
-        this.book_human_number = book_human_number == null ? null : book_human_number.trim();
+    public void setPeople(String people) {
+        this.people = people == null ? null : people.trim();
     }
 
-    public String getBook_teacher_verify() {
-        return book_teacher_verify;
+    public String getTeacherverify() {
+        return teacherverify;
     }
 
-    public void setBook_teacher_verify(String book_teacher_verify) {
-        this.book_teacher_verify = book_teacher_verify == null ? null : book_teacher_verify.trim();
+    public void setTeacherverify(String teacherverify) {
+        this.teacherverify = teacherverify == null ? null : teacherverify.trim();
     }
 
-    public String getBook_admin_verify() {
-        return book_admin_verify;
+    public String getAdminverify() {
+        return adminverify;
     }
 
-    public void setBook_admin_verify(String book_admin_verify) {
-        this.book_admin_verify = book_admin_verify == null ? null : book_admin_verify.trim();
+    public void setAdminverify(String adminverify) {
+        this.adminverify = adminverify == null ? null : adminverify.trim();
     }
 
-    public String getBook_report_score() {
-        return book_report_score;
+    public String getReportscore() {
+        return reportscore;
     }
 
-    public void setBook_report_score(String book_report_score) {
-        this.book_report_score = book_report_score == null ? null : book_report_score.trim();
+    public void setReportscore(String reportscore) {
+        this.reportscore = reportscore == null ? null : reportscore.trim();
     }
 
-    public String getBook_enter_password() {
-        return book_enter_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBook_enter_password(String book_enter_password) {
-        this.book_enter_password = book_enter_password == null ? null : book_enter_password.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
-    public Date getBook_enter_date() {
-        return book_enter_date;
+    public Date getEnterdate() {
+        return enterdate;
     }
 
-    public void setBook_enter_date(Date book_enter_date) {
-        this.book_enter_date = book_enter_date;
+    public void setEnterdate(Date enterdate) {
+        this.enterdate = enterdate;
     }
 
-    public Date getBook_leave_date() {
-        return book_leave_date;
+    public Date getLeavedate() {
+        return leavedate;
     }
 
-    public void setBook_leave_date(Date book_leave_date) {
-        this.book_leave_date = book_leave_date;
+    public void setLeavedate(Date leavedate) {
+        this.leavedate = leavedate;
     }
 
-    public Boolean getBook_confirm() {
-        return book_confirm;
+    public String getConfirm() {
+        return confirm;
     }
 
-    public void setBook_confirm(Boolean book_confirm) {
-        this.book_confirm = book_confirm;
+    public void setConfirm(String confirm) {
+        this.confirm = confirm == null ? null : confirm.trim();
     }
 
-    public String getBook_status() {
-        return book_status;
+    public String getStatus() {
+        return status;
     }
 
-    public void setBook_status(String book_status) {
-        this.book_status = book_status == null ? null : book_status.trim();
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
-    public String getBook_guide() {
-        return book_guide;
+    public String getGuide() {
+        return guide;
     }
 
-    public void setBook_guide(String book_guide) {
-        this.book_guide = book_guide == null ? null : book_guide.trim();
+    public void setGuide(String guide) {
+        this.guide = guide == null ? null : guide.trim();
     }
 
-    public String getBook_report_task() {
-        return book_report_task;
+    public String getReport() {
+        return report;
     }
 
-    public void setBook_report_task(String book_report_task) {
-        this.book_report_task = book_report_task == null ? null : book_report_task.trim();
+    public void setReport(String report) {
+        this.report = report == null ? null : report.trim();
+    }
+
+    public Integer getDid() {
+        return did;
+    }
+
+    public void setDid(Integer did) {
+        this.did = did;
+    }
+
+    public String getBooklab() {
+        return booklab;
+    }
+
+    public void setBooklab(String booklab) {
+        this.booklab = booklab == null ? null : booklab.trim();
+    }
+
+    public String getBooktea() {
+        return booktea;
+    }
+
+    public void setBooktea(String booktea) {
+        this.booktea = booktea == null ? null : booktea.trim();
+    }
+
+    public String getBookdevice() {
+        return bookdevice;
+    }
+
+    public void setBookdevice(String bookdevice) {
+        this.bookdevice = bookdevice == null ? null : bookdevice.trim();
+    }
+
+    public Date getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(Date enddate) {
+        this.enddate = enddate;
+    }
+
+    public String getBookstudent() {
+        return bookstudent;
+    }
+
+    public void setBookstudent(String bookstudent) {
+        this.bookstudent = bookstudent == null ? null : bookstudent.trim();
     }
 }

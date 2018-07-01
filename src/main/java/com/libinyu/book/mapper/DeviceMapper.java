@@ -5,7 +5,7 @@ import com.libinyu.book.pojo.DeviceExample;
 import java.util.List;
 
 public interface DeviceMapper {
-    int deleteByPrimaryKey(Integer device_id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Device record);
 
@@ -13,7 +13,7 @@ public interface DeviceMapper {
 
     List<Device> selectByExample(DeviceExample example);
 
-    Device selectByPrimaryKey(Integer device_id);
+    Device selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Device record);
 

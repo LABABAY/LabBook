@@ -1,6 +1,7 @@
 package com.libinyu.book.service;
 
 import com.libinyu.book.pojo.Admin;
+import com.libinyu.book.pojo.Student;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface AdminService {
     Admin get(int id);
 
     void update(Admin admin);
+    Admin get(String name, String password);
+
 }

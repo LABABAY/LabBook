@@ -1,8 +1,6 @@
 package com.libinyu.book.pojo;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class LabExample {
@@ -106,489 +104,553 @@ public class LabExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCTime(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Time(value.getTime()), property);
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameIsNull() {
+            addCriterion("name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameIsNotNull() {
+            addCriterion("name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameEqualTo(String value) {
+            addCriterion("name =", value, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameNotEqualTo(String value) {
+            addCriterion("name <>", value, "name");
+            return (Criteria) this;
         }
 
-        protected void addCriterionForJDBCTime(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Time> timeList = new ArrayList<java.sql.Time>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                timeList.add(new java.sql.Time(iter.next().getTime()));
-            }
-            addCriterion(condition, timeList, property);
+        public Criteria andNameGreaterThan(String value) {
+            addCriterion("name >", value, "name");
+            return (Criteria) this;
         }
 
-        protected void addCriterionForJDBCTime(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Time(value1.getTime()), new java.sql.Time(value2.getTime()), property);
+        public Criteria andNameGreaterThanOrEqualTo(String value) {
+            addCriterion("name >=", value, "name");
+            return (Criteria) this;
         }
 
-        public Criteria andLab_idIsNull() {
-            addCriterion("lab_id is null");
+        public Criteria andNameLessThan(String value) {
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idIsNotNull() {
-            addCriterion("lab_id is not null");
+        public Criteria andNameLessThanOrEqualTo(String value) {
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idEqualTo(Integer value) {
-            addCriterion("lab_id =", value, "lab_id");
+        public Criteria andNameLike(String value) {
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idNotEqualTo(Integer value) {
-            addCriterion("lab_id <>", value, "lab_id");
+        public Criteria andNameNotLike(String value) {
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idGreaterThan(Integer value) {
-            addCriterion("lab_id >", value, "lab_id");
+        public Criteria andNameIn(List<String> values) {
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("lab_id >=", value, "lab_id");
+        public Criteria andNameNotIn(List<String> values) {
+            addCriterion("name not in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idLessThan(Integer value) {
-            addCriterion("lab_id <", value, "lab_id");
+        public Criteria andNameBetween(String value1, String value2) {
+            addCriterion("name between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idLessThanOrEqualTo(Integer value) {
-            addCriterion("lab_id <=", value, "lab_id");
+        public Criteria andNameNotBetween(String value1, String value2) {
+            addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idIn(List<Integer> values) {
-            addCriterion("lab_id in", values, "lab_id");
+        public Criteria andNumberIsNull() {
+            addCriterion("number is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idNotIn(List<Integer> values) {
-            addCriterion("lab_id not in", values, "lab_id");
+        public Criteria andNumberIsNotNull() {
+            addCriterion("number is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idBetween(Integer value1, Integer value2) {
-            addCriterion("lab_id between", value1, value2, "lab_id");
+        public Criteria andNumberEqualTo(String value) {
+            addCriterion("number =", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("lab_id not between", value1, value2, "lab_id");
+        public Criteria andNumberNotEqualTo(String value) {
+            addCriterion("number <>", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameIsNull() {
-            addCriterion("lab_name is null");
+        public Criteria andNumberGreaterThan(String value) {
+            addCriterion("number >", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameIsNotNull() {
-            addCriterion("lab_name is not null");
+        public Criteria andNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("number >=", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameEqualTo(String value) {
-            addCriterion("lab_name =", value, "lab_name");
+        public Criteria andNumberLessThan(String value) {
+            addCriterion("number <", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameNotEqualTo(String value) {
-            addCriterion("lab_name <>", value, "lab_name");
+        public Criteria andNumberLessThanOrEqualTo(String value) {
+            addCriterion("number <=", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameGreaterThan(String value) {
-            addCriterion("lab_name >", value, "lab_name");
+        public Criteria andNumberLike(String value) {
+            addCriterion("number like", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameGreaterThanOrEqualTo(String value) {
-            addCriterion("lab_name >=", value, "lab_name");
+        public Criteria andNumberNotLike(String value) {
+            addCriterion("number not like", value, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameLessThan(String value) {
-            addCriterion("lab_name <", value, "lab_name");
+        public Criteria andNumberIn(List<String> values) {
+            addCriterion("number in", values, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameLessThanOrEqualTo(String value) {
-            addCriterion("lab_name <=", value, "lab_name");
+        public Criteria andNumberNotIn(List<String> values) {
+            addCriterion("number not in", values, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameLike(String value) {
-            addCriterion("lab_name like", value, "lab_name");
+        public Criteria andNumberBetween(String value1, String value2) {
+            addCriterion("number between", value1, value2, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameNotLike(String value) {
-            addCriterion("lab_name not like", value, "lab_name");
+        public Criteria andNumberNotBetween(String value1, String value2) {
+            addCriterion("number not between", value1, value2, "number");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameIn(List<String> values) {
-            addCriterion("lab_name in", values, "lab_name");
+        public Criteria andOpenIsNull() {
+            addCriterion("open is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameNotIn(List<String> values) {
-            addCriterion("lab_name not in", values, "lab_name");
+        public Criteria andOpenIsNotNull() {
+            addCriterion("open is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameBetween(String value1, String value2) {
-            addCriterion("lab_name between", value1, value2, "lab_name");
+        public Criteria andOpenEqualTo(String value) {
+            addCriterion("open =", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_nameNotBetween(String value1, String value2) {
-            addCriterion("lab_name not between", value1, value2, "lab_name");
+        public Criteria andOpenNotEqualTo(String value) {
+            addCriterion("open <>", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberIsNull() {
-            addCriterion("lab_number is null");
+        public Criteria andOpenGreaterThan(String value) {
+            addCriterion("open >", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberIsNotNull() {
-            addCriterion("lab_number is not null");
+        public Criteria andOpenGreaterThanOrEqualTo(String value) {
+            addCriterion("open >=", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberEqualTo(String value) {
-            addCriterion("lab_number =", value, "lab_number");
+        public Criteria andOpenLessThan(String value) {
+            addCriterion("open <", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberNotEqualTo(String value) {
-            addCriterion("lab_number <>", value, "lab_number");
+        public Criteria andOpenLessThanOrEqualTo(String value) {
+            addCriterion("open <=", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberGreaterThan(String value) {
-            addCriterion("lab_number >", value, "lab_number");
+        public Criteria andOpenLike(String value) {
+            addCriterion("open like", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberGreaterThanOrEqualTo(String value) {
-            addCriterion("lab_number >=", value, "lab_number");
+        public Criteria andOpenNotLike(String value) {
+            addCriterion("open not like", value, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberLessThan(String value) {
-            addCriterion("lab_number <", value, "lab_number");
+        public Criteria andOpenIn(List<String> values) {
+            addCriterion("open in", values, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberLessThanOrEqualTo(String value) {
-            addCriterion("lab_number <=", value, "lab_number");
+        public Criteria andOpenNotIn(List<String> values) {
+            addCriterion("open not in", values, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberLike(String value) {
-            addCriterion("lab_number like", value, "lab_number");
+        public Criteria andOpenBetween(String value1, String value2) {
+            addCriterion("open between", value1, value2, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberNotLike(String value) {
-            addCriterion("lab_number not like", value, "lab_number");
+        public Criteria andOpenNotBetween(String value1, String value2) {
+            addCriterion("open not between", value1, value2, "open");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberIn(List<String> values) {
-            addCriterion("lab_number in", values, "lab_number");
+        public Criteria andOpentimeIsNull() {
+            addCriterion("opentime is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberNotIn(List<String> values) {
-            addCriterion("lab_number not in", values, "lab_number");
+        public Criteria andOpentimeIsNotNull() {
+            addCriterion("opentime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberBetween(String value1, String value2) {
-            addCriterion("lab_number between", value1, value2, "lab_number");
+        public Criteria andOpentimeEqualTo(String value) {
+            addCriterion("opentime =", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_numberNotBetween(String value1, String value2) {
-            addCriterion("lab_number not between", value1, value2, "lab_number");
+        public Criteria andOpentimeNotEqualTo(String value) {
+            addCriterion("opentime <>", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openIsNull() {
-            addCriterion("lab_open is null");
+        public Criteria andOpentimeGreaterThan(String value) {
+            addCriterion("opentime >", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openIsNotNull() {
-            addCriterion("lab_open is not null");
+        public Criteria andOpentimeGreaterThanOrEqualTo(String value) {
+            addCriterion("opentime >=", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openEqualTo(Boolean value) {
-            addCriterion("lab_open =", value, "lab_open");
+        public Criteria andOpentimeLessThan(String value) {
+            addCriterion("opentime <", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openNotEqualTo(Boolean value) {
-            addCriterion("lab_open <>", value, "lab_open");
+        public Criteria andOpentimeLessThanOrEqualTo(String value) {
+            addCriterion("opentime <=", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openGreaterThan(Boolean value) {
-            addCriterion("lab_open >", value, "lab_open");
+        public Criteria andOpentimeLike(String value) {
+            addCriterion("opentime like", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("lab_open >=", value, "lab_open");
+        public Criteria andOpentimeNotLike(String value) {
+            addCriterion("opentime not like", value, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openLessThan(Boolean value) {
-            addCriterion("lab_open <", value, "lab_open");
+        public Criteria andOpentimeIn(List<String> values) {
+            addCriterion("opentime in", values, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openLessThanOrEqualTo(Boolean value) {
-            addCriterion("lab_open <=", value, "lab_open");
+        public Criteria andOpentimeNotIn(List<String> values) {
+            addCriterion("opentime not in", values, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openIn(List<Boolean> values) {
-            addCriterion("lab_open in", values, "lab_open");
+        public Criteria andOpentimeBetween(String value1, String value2) {
+            addCriterion("opentime between", value1, value2, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openNotIn(List<Boolean> values) {
-            addCriterion("lab_open not in", values, "lab_open");
+        public Criteria andOpentimeNotBetween(String value1, String value2) {
+            addCriterion("opentime not between", value1, value2, "opentime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openBetween(Boolean value1, Boolean value2) {
-            addCriterion("lab_open between", value1, value2, "lab_open");
+        public Criteria andDeviceIsNull() {
+            addCriterion("device is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_openNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("lab_open not between", value1, value2, "lab_open");
+        public Criteria andDeviceIsNotNull() {
+            addCriterion("device is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeIsNull() {
-            addCriterion("lab_open_time is null");
+        public Criteria andDeviceEqualTo(String value) {
+            addCriterion("device =", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeIsNotNull() {
-            addCriterion("lab_open_time is not null");
+        public Criteria andDeviceNotEqualTo(String value) {
+            addCriterion("device <>", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeEqualTo(Date value) {
-            addCriterionForJDBCTime("lab_open_time =", value, "lab_open_time");
+        public Criteria andDeviceGreaterThan(String value) {
+            addCriterion("device >", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeNotEqualTo(Date value) {
-            addCriterionForJDBCTime("lab_open_time <>", value, "lab_open_time");
+        public Criteria andDeviceGreaterThanOrEqualTo(String value) {
+            addCriterion("device >=", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeGreaterThan(Date value) {
-            addCriterionForJDBCTime("lab_open_time >", value, "lab_open_time");
+        public Criteria andDeviceLessThan(String value) {
+            addCriterion("device <", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCTime("lab_open_time >=", value, "lab_open_time");
+        public Criteria andDeviceLessThanOrEqualTo(String value) {
+            addCriterion("device <=", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeLessThan(Date value) {
-            addCriterionForJDBCTime("lab_open_time <", value, "lab_open_time");
+        public Criteria andDeviceLike(String value) {
+            addCriterion("device like", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCTime("lab_open_time <=", value, "lab_open_time");
+        public Criteria andDeviceNotLike(String value) {
+            addCriterion("device not like", value, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeIn(List<Date> values) {
-            addCriterionForJDBCTime("lab_open_time in", values, "lab_open_time");
+        public Criteria andDeviceIn(List<String> values) {
+            addCriterion("device in", values, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeNotIn(List<Date> values) {
-            addCriterionForJDBCTime("lab_open_time not in", values, "lab_open_time");
+        public Criteria andDeviceNotIn(List<String> values) {
+            addCriterion("device not in", values, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeBetween(Date value1, Date value2) {
-            addCriterionForJDBCTime("lab_open_time between", value1, value2, "lab_open_time");
+        public Criteria andDeviceBetween(String value1, String value2) {
+            addCriterion("device between", value1, value2, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_open_timeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCTime("lab_open_time not between", value1, value2, "lab_open_time");
+        public Criteria andDeviceNotBetween(String value1, String value2) {
+            addCriterion("device not between", value1, value2, "device");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberIsNull() {
-            addCriterion("lab_device_number is null");
+        public Criteria andSeatIsNull() {
+            addCriterion("seat is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberIsNotNull() {
-            addCriterion("lab_device_number is not null");
+        public Criteria andSeatIsNotNull() {
+            addCriterion("seat is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberEqualTo(String value) {
-            addCriterion("lab_device_number =", value, "lab_device_number");
+        public Criteria andSeatEqualTo(String value) {
+            addCriterion("seat =", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberNotEqualTo(String value) {
-            addCriterion("lab_device_number <>", value, "lab_device_number");
+        public Criteria andSeatNotEqualTo(String value) {
+            addCriterion("seat <>", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberGreaterThan(String value) {
-            addCriterion("lab_device_number >", value, "lab_device_number");
+        public Criteria andSeatGreaterThan(String value) {
+            addCriterion("seat >", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberGreaterThanOrEqualTo(String value) {
-            addCriterion("lab_device_number >=", value, "lab_device_number");
+        public Criteria andSeatGreaterThanOrEqualTo(String value) {
+            addCriterion("seat >=", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberLessThan(String value) {
-            addCriterion("lab_device_number <", value, "lab_device_number");
+        public Criteria andSeatLessThan(String value) {
+            addCriterion("seat <", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberLessThanOrEqualTo(String value) {
-            addCriterion("lab_device_number <=", value, "lab_device_number");
+        public Criteria andSeatLessThanOrEqualTo(String value) {
+            addCriterion("seat <=", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberLike(String value) {
-            addCriterion("lab_device_number like", value, "lab_device_number");
+        public Criteria andSeatLike(String value) {
+            addCriterion("seat like", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberNotLike(String value) {
-            addCriterion("lab_device_number not like", value, "lab_device_number");
+        public Criteria andSeatNotLike(String value) {
+            addCriterion("seat not like", value, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberIn(List<String> values) {
-            addCriterion("lab_device_number in", values, "lab_device_number");
+        public Criteria andSeatIn(List<String> values) {
+            addCriterion("seat in", values, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberNotIn(List<String> values) {
-            addCriterion("lab_device_number not in", values, "lab_device_number");
+        public Criteria andSeatNotIn(List<String> values) {
+            addCriterion("seat not in", values, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberBetween(String value1, String value2) {
-            addCriterion("lab_device_number between", value1, value2, "lab_device_number");
+        public Criteria andSeatBetween(String value1, String value2) {
+            addCriterion("seat between", value1, value2, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_device_numberNotBetween(String value1, String value2) {
-            addCriterion("lab_device_number not between", value1, value2, "lab_device_number");
+        public Criteria andSeatNotBetween(String value1, String value2) {
+            addCriterion("seat not between", value1, value2, "seat");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainIsNull() {
-            addCriterion("lab_seat_remain is null");
+        public Criteria andClosetimeIsNull() {
+            addCriterion("closetime is null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainIsNotNull() {
-            addCriterion("lab_seat_remain is not null");
+        public Criteria andClosetimeIsNotNull() {
+            addCriterion("closetime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainEqualTo(String value) {
-            addCriterion("lab_seat_remain =", value, "lab_seat_remain");
+        public Criteria andClosetimeEqualTo(String value) {
+            addCriterion("closetime =", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainNotEqualTo(String value) {
-            addCriterion("lab_seat_remain <>", value, "lab_seat_remain");
+        public Criteria andClosetimeNotEqualTo(String value) {
+            addCriterion("closetime <>", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainGreaterThan(String value) {
-            addCriterion("lab_seat_remain >", value, "lab_seat_remain");
+        public Criteria andClosetimeGreaterThan(String value) {
+            addCriterion("closetime >", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainGreaterThanOrEqualTo(String value) {
-            addCriterion("lab_seat_remain >=", value, "lab_seat_remain");
+        public Criteria andClosetimeGreaterThanOrEqualTo(String value) {
+            addCriterion("closetime >=", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainLessThan(String value) {
-            addCriterion("lab_seat_remain <", value, "lab_seat_remain");
+        public Criteria andClosetimeLessThan(String value) {
+            addCriterion("closetime <", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainLessThanOrEqualTo(String value) {
-            addCriterion("lab_seat_remain <=", value, "lab_seat_remain");
+        public Criteria andClosetimeLessThanOrEqualTo(String value) {
+            addCriterion("closetime <=", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainLike(String value) {
-            addCriterion("lab_seat_remain like", value, "lab_seat_remain");
+        public Criteria andClosetimeLike(String value) {
+            addCriterion("closetime like", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainNotLike(String value) {
-            addCriterion("lab_seat_remain not like", value, "lab_seat_remain");
+        public Criteria andClosetimeNotLike(String value) {
+            addCriterion("closetime not like", value, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainIn(List<String> values) {
-            addCriterion("lab_seat_remain in", values, "lab_seat_remain");
+        public Criteria andClosetimeIn(List<String> values) {
+            addCriterion("closetime in", values, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainNotIn(List<String> values) {
-            addCriterion("lab_seat_remain not in", values, "lab_seat_remain");
+        public Criteria andClosetimeNotIn(List<String> values) {
+            addCriterion("closetime not in", values, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainBetween(String value1, String value2) {
-            addCriterion("lab_seat_remain between", value1, value2, "lab_seat_remain");
+        public Criteria andClosetimeBetween(String value1, String value2) {
+            addCriterion("closetime between", value1, value2, "closetime");
             return (Criteria) this;
         }
 
-        public Criteria andLab_seat_remainNotBetween(String value1, String value2) {
-            addCriterion("lab_seat_remain not between", value1, value2, "lab_seat_remain");
+        public Criteria andClosetimeNotBetween(String value1, String value2) {
+            addCriterion("closetime not between", value1, value2, "closetime");
             return (Criteria) this;
         }
     }

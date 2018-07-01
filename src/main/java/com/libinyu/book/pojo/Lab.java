@@ -1,75 +1,83 @@
 package com.libinyu.book.pojo;
 
-import java.util.Date;
-
 public class Lab {
-    private Integer lab_id;
+    private Integer id;
 
-    private String lab_name;
+    private String name;
 
-    private String lab_number;
+    private String number;
 
-    private Boolean lab_open;
+    private String open;
 
-    private Date lab_open_time;
+    private String opentime;
 
-    private String lab_device_number;
+    private String device;
 
-    private String lab_seat_remain;
+    private String seat;
 
-    public Integer getLab_id() {
-        return lab_id;
+    private String closetime;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setLab_id(Integer lab_id) {
-        this.lab_id = lab_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getLab_name() {
-        return lab_name;
+    public String getName() {
+        return name;
     }
 
-    public void setLab_name(String lab_name) {
-        this.lab_name = lab_name == null ? null : lab_name.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getLab_number() {
-        return lab_number;
+    public String getNumber() {
+        return number;
     }
 
-    public void setLab_number(String lab_number) {
-        this.lab_number = lab_number == null ? null : lab_number.trim();
+    public void setNumber(String number) {
+        this.number = number == null ? null : number.trim();
     }
 
-    public Boolean getLab_open() {
-        return lab_open;
+    public String getOpen() {
+        return open;
     }
 
-    public void setLab_open(Boolean lab_open) {
-        this.lab_open = lab_open;
+    public void setOpen(String open) {
+        this.open = open == null ? null : open.trim();
     }
 
-    public Date getLab_open_time() {
-        return lab_open_time;
+    public String getOpentime() {
+        return opentime;
     }
 
-    public void setLab_open_time(Date lab_open_time) {
-        this.lab_open_time = lab_open_time;
+    public void setOpentime(String opentime) {
+        this.opentime = opentime == null ? null : opentime.trim();
     }
 
-    public String getLab_device_number() {
-        return lab_device_number;
+    public String getDevice() {
+        return device;
     }
 
-    public void setLab_device_number(String lab_device_number) {
-        this.lab_device_number = lab_device_number == null ? null : lab_device_number.trim();
+    public void setDevice(String device) {
+        this.device = device == null ? null : device.trim();
     }
 
-    public String getLab_seat_remain() {
-        return lab_seat_remain;
+    public String getSeat() {
+        return seat;
     }
 
-    public void setLab_seat_remain(String lab_seat_remain) {
-        this.lab_seat_remain = lab_seat_remain == null ? null : lab_seat_remain.trim();
+    public void setSeat(String seat) {
+        this.seat = seat == null ? null : seat.trim();
+    }
+
+    public String getClosetime() {
+        return closetime;
+    }
+
+    public void setClosetime(String closetime) {
+        this.closetime = closetime == null ? null : closetime.trim();
     }
 }

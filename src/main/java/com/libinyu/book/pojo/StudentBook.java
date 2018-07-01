@@ -1,33 +1,33 @@
 package com.libinyu.book.pojo;
 
 public class StudentBook {
-    private Integer student_book_id;
+    private Integer id;
 
-    private Integer student_id;
+    private Integer sid;
 
-    private Integer book_id;
+    private Integer bid;
 
-    public Integer getStudent_book_id() {
-        return student_book_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setStudent_book_id(Integer student_book_id) {
-        this.student_book_id = student_book_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getStudent_id() {
-        return student_id;
+    public Integer getSid() {
+        return sid;
     }
 
-    public void setStudent_id(Integer student_id) {
-        this.student_id = student_id;
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
 
-    public Integer getBook_id() {
-        return book_id;
+    public Integer getBid() {
+        return bid;
     }
 
-    public void setBook_id(Integer book_id) {
-        this.book_id = book_id;
+    public void setBid(Integer bid) {
+        this.bid = bid;
     }
 }

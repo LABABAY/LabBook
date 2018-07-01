@@ -1,43 +1,43 @@
 package com.libinyu.book.pojo;
 
 public class Score {
-    private Integer score_id;
+    private Integer id;
 
-    private String score_regular;
+    private String attend;
 
-    private String score_experiment;
+    private String experiment;
 
-    private String score_total;
+    private String total;
 
-    public Integer getScore_id() {
-        return score_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setScore_id(Integer score_id) {
-        this.score_id = score_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getScore_regular() {
-        return score_regular;
+    public String getAttend() {
+        return attend;
     }
 
-    public void setScore_regular(String score_regular) {
-        this.score_regular = score_regular == null ? null : score_regular.trim();
+    public void setAttend(String attend) {
+        this.attend = attend == null ? null : attend.trim();
     }
 
-    public String getScore_experiment() {
-        return score_experiment;
+    public String getExperiment() {
+        return experiment;
     }
 
-    public void setScore_experiment(String score_experiment) {
-        this.score_experiment = score_experiment == null ? null : score_experiment.trim();
+    public void setExperiment(String experiment) {
+        this.experiment = experiment == null ? null : experiment.trim();
     }
 
-    public String getScore_total() {
-        return score_total;
+    public String getTotal() {
+        return total;
     }
 
-    public void setScore_total(String score_total) {
-        this.score_total = score_total == null ? null : score_total.trim();
+    public void setTotal(String total) {
+        this.total = total == null ? null : total.trim();
     }
 }

@@ -1,83 +1,83 @@
 package com.libinyu.book.pojo;
 
 public class Admin {
-    private Integer admin_id;
+    private Integer id;
 
-    private String admin_name;
+    private String name;
 
-    private String admin_sex;
+    private String sex;
 
-    private String admin_image;
+    private String image;
 
-    private String admin_telphone;
+    private String telphone;
 
-    private String admin_email;
+    private String email;
 
-    private String admin_account;
+    private String account;
 
-    private String admin_password;
+    private String password;
 
-    public Integer getAdmin_id() {
-        return admin_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAdmin_id(Integer admin_id) {
-        this.admin_id = admin_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getAdmin_name() {
-        return admin_name;
+    public String getName() {
+        return name;
     }
 
-    public void setAdmin_name(String admin_name) {
-        this.admin_name = admin_name == null ? null : admin_name.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getAdmin_sex() {
-        return admin_sex;
+    public String getSex() {
+        return sex;
     }
 
-    public void setAdmin_sex(String admin_sex) {
-        this.admin_sex = admin_sex == null ? null : admin_sex.trim();
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
-    public String getAdmin_image() {
-        return admin_image;
+    public String getImage() {
+        return image;
     }
 
-    public void setAdmin_image(String admin_image) {
-        this.admin_image = admin_image == null ? null : admin_image.trim();
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
     }
 
-    public String getAdmin_telphone() {
-        return admin_telphone;
+    public String getTelphone() {
+        return telphone;
     }
 
-    public void setAdmin_telphone(String admin_telphone) {
-        this.admin_telphone = admin_telphone == null ? null : admin_telphone.trim();
+    public void setTelphone(String telphone) {
+        this.telphone = telphone == null ? null : telphone.trim();
     }
 
-    public String getAdmin_email() {
-        return admin_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAdmin_email(String admin_email) {
-        this.admin_email = admin_email == null ? null : admin_email.trim();
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 
-    public String getAdmin_account() {
-        return admin_account;
+    public String getAccount() {
+        return account;
     }
 
-    public void setAdmin_account(String admin_account) {
-        this.admin_account = admin_account == null ? null : admin_account.trim();
+    public void setAccount(String account) {
+        this.account = account == null ? null : account.trim();
     }
 
-    public String getAdmin_password() {
-        return admin_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAdmin_password(String admin_password) {
-        this.admin_password = admin_password == null ? null : admin_password.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 }

@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.TeacherMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Teacher">
-    <id column="teacher_id" jdbcType="INTEGER" property="teacher_id" />
-    <result column="teacher_name" jdbcType="VARCHAR" property="teacher_name" />
-    <result column="teacher_sex" jdbcType="VARCHAR" property="teacher_sex" />
-    <result column="teacher_title" jdbcType="VARCHAR" property="teacher_title" />
-    <result column="teacher_image" jdbcType="VARCHAR" property="teacher_image" />
-    <result column="teacher_telphone" jdbcType="VARCHAR" property="teacher_telphone" />
-    <result column="teacher_email" jdbcType="VARCHAR" property="teacher_email" />
-    <result column="teacher_introduction" jdbcType="VARCHAR" property="teacher_introduction" />
-    <result column="teacher_account" jdbcType="VARCHAR" property="teacher_account" />
-    <result column="teacher_password" jdbcType="VARCHAR" property="teacher_password" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -43,8 +43,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    teacher_id, teacher_name, teacher_sex, teacher_title, teacher_image, teacher_telphone, 
-    teacher_email, teacher_introduction, teacher_account, teacher_password
+    id, name, sex, title, image, telphone, email, introduction, account, password
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.TeacherExample" resultMap="BaseResultMap">
     select
@@ -65,127 +64,127 @@
     select 
     <include refid="Base_Column_List" />
     from teacher
-    where teacher_id = #{teacher_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from teacher
-    where teacher_id = #{teacher_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="teacher_id" keyProperty="teacher_id" parameterType="com.libinyu.book.pojo.Teacher" useGeneratedKeys="true">
-    insert into teacher (teacher_name, teacher_sex, teacher_title, 
-      teacher_image, teacher_telphone, teacher_email, 
-      teacher_introduction, teacher_account, 
-      teacher_password)
-    values (#{teacher_name,jdbcType=VARCHAR}, #{teacher_sex,jdbcType=VARCHAR}, #{teacher_title,jdbcType=VARCHAR}, 
-      #{teacher_image,jdbcType=VARCHAR}, #{teacher_telphone,jdbcType=VARCHAR}, #{teacher_email,jdbcType=VARCHAR}, 
-      #{teacher_introduction,jdbcType=VARCHAR}, #{teacher_account,jdbcType=VARCHAR}, 
-      #{teacher_password,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Teacher" useGeneratedKeys="true">
+    insert into teacher (name, sex, title, 
+      image, telphone, email, 
+      introduction, account, password
+      )
+    values (#{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" keyColumn="teacher_id" keyProperty="teacher_id" parameterType="com.libinyu.book.pojo.Teacher" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Teacher" useGeneratedKeys="true">
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="teacher_name != null">
-        teacher_name,
+      <if test="name != null">
+        name,
       </if>
-      <if test="teacher_sex != null">
-        teacher_sex,
+      <if test="sex != null">
+        sex,
       </if>
-      <if test="teacher_title != null">
-        teacher_title,
+      <if test="title != null">
+        title,
       </if>
-      <if test="teacher_image != null">
-        teacher_image,
+      <if test="image != null">
+        image,
       </if>
-      <if test="teacher_telphone != null">
-        teacher_telphone,
+      <if test="telphone != null">
+        telphone,
       </if>
-      <if test="teacher_email != null">
-        teacher_email,
+      <if test="email != null">
+        email,
       </if>
-      <if test="teacher_introduction != null">
-        teacher_introduction,
+      <if test="introduction != null">
+        introduction,
       </if>
-      <if test="teacher_account != null">
-        teacher_account,
+      <if test="account != null">
+        account,
       </if>
-      <if test="teacher_password != null">
-        teacher_password,
+      <if test="password != null">
+        password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="teacher_name != null">
-        #{teacher_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_sex != null">
-        #{teacher_sex,jdbcType=VARCHAR},
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_title != null">
-        #{teacher_title,jdbcType=VARCHAR},
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_image != null">
-        #{teacher_image,jdbcType=VARCHAR},
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_telphone != null">
-        #{teacher_telphone,jdbcType=VARCHAR},
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_email != null">
-        #{teacher_email,jdbcType=VARCHAR},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_introduction != null">
-        #{teacher_introduction,jdbcType=VARCHAR},
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_account != null">
-        #{teacher_account,jdbcType=VARCHAR},
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_password != null">
-        #{teacher_password,jdbcType=VARCHAR},
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Teacher">
     update teacher
     <set>
-      <if test="teacher_name != null">
-        teacher_name = #{teacher_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_sex != null">
-        teacher_sex = #{teacher_sex,jdbcType=VARCHAR},
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_title != null">
-        teacher_title = #{teacher_title,jdbcType=VARCHAR},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_image != null">
-        teacher_image = #{teacher_image,jdbcType=VARCHAR},
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_telphone != null">
-        teacher_telphone = #{teacher_telphone,jdbcType=VARCHAR},
+      <if test="telphone != null">
+        telphone = #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_email != null">
-        teacher_email = #{teacher_email,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_introduction != null">
-        teacher_introduction = #{teacher_introduction,jdbcType=VARCHAR},
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_account != null">
-        teacher_account = #{teacher_account,jdbcType=VARCHAR},
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
       </if>
-      <if test="teacher_password != null">
-        teacher_password = #{teacher_password,jdbcType=VARCHAR},
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
       </if>
     </set>
-    where teacher_id = #{teacher_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Teacher">
     update teacher
-    set teacher_name = #{teacher_name,jdbcType=VARCHAR},
-      teacher_sex = #{teacher_sex,jdbcType=VARCHAR},
-      teacher_title = #{teacher_title,jdbcType=VARCHAR},
-      teacher_image = #{teacher_image,jdbcType=VARCHAR},
-      teacher_telphone = #{teacher_telphone,jdbcType=VARCHAR},
-      teacher_email = #{teacher_email,jdbcType=VARCHAR},
-      teacher_introduction = #{teacher_introduction,jdbcType=VARCHAR},
-      teacher_account = #{teacher_account,jdbcType=VARCHAR},
-      teacher_password = #{teacher_password,jdbcType=VARCHAR}
-    where teacher_id = #{teacher_id,jdbcType=INTEGER}
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

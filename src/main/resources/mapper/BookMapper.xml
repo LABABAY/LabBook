@@ -2,25 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.BookMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Book">
-    <id column="book_id" jdbcType="INTEGER" property="book_id" />
-    <result column="score_id" jdbcType="INTEGER" property="score_id" />
-    <result column="lab_id" jdbcType="INTEGER" property="lab_id" />
-    <result column="teacher_id" jdbcType="INTEGER" property="teacher_id" />
-    <result column="admin_id" jdbcType="INTEGER" property="admin_id" />
-    <result column="book_project_title" jdbcType="VARCHAR" property="book_project_title" />
-    <result column="book_project_detail" jdbcType="VARCHAR" property="book_project_detail" />
-    <result column="book_experiment_date" jdbcType="TIMESTAMP" property="book_experiment_date" />
-    <result column="book_human_number" jdbcType="VARCHAR" property="book_human_number" />
-    <result column="book_teacher_verify" jdbcType="VARCHAR" property="book_teacher_verify" />
-    <result column="book_admin_verify" jdbcType="VARCHAR" property="book_admin_verify" />
-    <result column="book_report_score" jdbcType="VARCHAR" property="book_report_score" />
-    <result column="book_enter_password" jdbcType="CHAR" property="book_enter_password" />
-    <result column="book_enter_date" jdbcType="TIMESTAMP" property="book_enter_date" />
-    <result column="book_leave_date" jdbcType="TIMESTAMP" property="book_leave_date" />
-    <result column="book_confirm" jdbcType="BIT" property="book_confirm" />
-    <result column="book_status" jdbcType="VARCHAR" property="book_status" />
-    <result column="book_guide" jdbcType="VARCHAR" property="book_guide" />
-    <result column="book_report_task" jdbcType="VARCHAR" property="book_report_task" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="scid" jdbcType="INTEGER" property="scid" />
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="startdate" jdbcType="TIMESTAMP" property="startdate" />
+    <result column="people" jdbcType="VARCHAR" property="people" />
+    <result column="teacherverify" jdbcType="VARCHAR" property="teacherverify" />
+    <result column="adminverify" jdbcType="VARCHAR" property="adminverify" />
+    <result column="reportscore" jdbcType="VARCHAR" property="reportscore" />
+    <result column="password" jdbcType="CHAR" property="password" />
+    <result column="enterdate" jdbcType="TIMESTAMP" property="enterdate" />
+    <result column="leavedate" jdbcType="TIMESTAMP" property="leavedate" />
+    <result column="confirm" jdbcType="VARCHAR" property="confirm" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="guide" jdbcType="VARCHAR" property="guide" />
+    <result column="report" jdbcType="VARCHAR" property="report" />
+    <result column="did" jdbcType="INTEGER" property="did" />
+    <result column="booklab" jdbcType="VARCHAR" property="booklab" />
+    <result column="booktea" jdbcType="VARCHAR" property="booktea" />
+    <result column="bookdevice" jdbcType="VARCHAR" property="bookdevice" />
+    <result column="enddate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="bookstudent" jdbcType="VARCHAR" property="bookstudent" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -52,10 +58,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    book_id, score_id, lab_id, teacher_id, admin_id, book_project_title, book_project_detail, 
-    book_experiment_date, book_human_number, book_teacher_verify, book_admin_verify, 
-    book_report_score, book_enter_password, book_enter_date, book_leave_date, book_confirm, 
-    book_status, book_guide, book_report_task
+    id, scid, lid, tid, aid, title, detail, startdate, people, teacherverify, adminverify, 
+    reportscore, password, enterdate, leavedate, confirm, status, guide, report, did, 
+    booklab, booktea, bookdevice, enddate, bookstudent
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.BookExample" resultMap="BaseResultMap">
     select
@@ -76,223 +81,287 @@
     select 
     <include refid="Base_Column_List" />
     from book
-    where book_id = #{book_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from book
-    where book_id = #{book_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="book_id" keyProperty="book_id" parameterType="com.libinyu.book.pojo.Book" useGeneratedKeys="true">
-    insert into book (score_id, lab_id, teacher_id, 
-      admin_id, book_project_title, book_project_detail, 
-      book_experiment_date, book_human_number, 
-      book_teacher_verify, book_admin_verify, 
-      book_report_score, book_enter_password, book_enter_date, 
-      book_leave_date, book_confirm, book_status, 
-      book_guide, book_report_task)
-    values (#{score_id,jdbcType=INTEGER}, #{lab_id,jdbcType=INTEGER}, #{teacher_id,jdbcType=INTEGER}, 
-      #{admin_id,jdbcType=INTEGER}, #{book_project_title,jdbcType=VARCHAR}, #{book_project_detail,jdbcType=VARCHAR}, 
-      #{book_experiment_date,jdbcType=TIMESTAMP}, #{book_human_number,jdbcType=VARCHAR}, 
-      #{book_teacher_verify,jdbcType=VARCHAR}, #{book_admin_verify,jdbcType=VARCHAR}, 
-      #{book_report_score,jdbcType=VARCHAR}, #{book_enter_password,jdbcType=CHAR}, #{book_enter_date,jdbcType=TIMESTAMP}, 
-      #{book_leave_date,jdbcType=TIMESTAMP}, #{book_confirm,jdbcType=BIT}, #{book_status,jdbcType=VARCHAR}, 
-      #{book_guide,jdbcType=VARCHAR}, #{book_report_task,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Book" useGeneratedKeys="true">
+    insert into book (scid, lid, tid, 
+      aid, title, detail, 
+      startdate, people, teacherverify, 
+      adminverify, reportscore, password, 
+      enterdate, leavedate, confirm, 
+      status, guide, report, 
+      did, booklab, booktea, 
+      bookdevice, enddate, bookstudent
+      )
+    values (#{scid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, 
+      #{aid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=TIMESTAMP}, #{people,jdbcType=VARCHAR}, #{teacherverify,jdbcType=VARCHAR}, 
+      #{adminverify,jdbcType=VARCHAR}, #{reportscore,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, 
+      #{enterdate,jdbcType=TIMESTAMP}, #{leavedate,jdbcType=TIMESTAMP}, #{confirm,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{guide,jdbcType=VARCHAR}, #{report,jdbcType=VARCHAR}, 
+      #{did,jdbcType=INTEGER}, #{booklab,jdbcType=VARCHAR}, #{booktea,jdbcType=VARCHAR}, 
+      #{bookdevice,jdbcType=VARCHAR}, #{enddate,jdbcType=TIMESTAMP}, #{bookstudent,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" keyColumn="book_id" keyProperty="book_id" parameterType="com.libinyu.book.pojo.Book" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Book" useGeneratedKeys="true">
     insert into book
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="score_id != null">
-        score_id,
+      <if test="scid != null">
+        scid,
       </if>
-      <if test="lab_id != null">
-        lab_id,
+      <if test="lid != null">
+        lid,
       </if>
-      <if test="teacher_id != null">
-        teacher_id,
+      <if test="tid != null">
+        tid,
       </if>
-      <if test="admin_id != null">
-        admin_id,
+      <if test="aid != null">
+        aid,
       </if>
-      <if test="book_project_title != null">
-        book_project_title,
+      <if test="title != null">
+        title,
       </if>
-      <if test="book_project_detail != null">
-        book_project_detail,
+      <if test="detail != null">
+        detail,
       </if>
-      <if test="book_experiment_date != null">
-        book_experiment_date,
+      <if test="startdate != null">
+        startdate,
       </if>
-      <if test="book_human_number != null">
-        book_human_number,
+      <if test="people != null">
+        people,
       </if>
-      <if test="book_teacher_verify != null">
-        book_teacher_verify,
+      <if test="teacherverify != null">
+        teacherverify,
       </if>
-      <if test="book_admin_verify != null">
-        book_admin_verify,
+      <if test="adminverify != null">
+        adminverify,
       </if>
-      <if test="book_report_score != null">
-        book_report_score,
+      <if test="reportscore != null">
+        reportscore,
       </if>
-      <if test="book_enter_password != null">
-        book_enter_password,
+      <if test="password != null">
+        password,
       </if>
-      <if test="book_enter_date != null">
-        book_enter_date,
+      <if test="enterdate != null">
+        enterdate,
       </if>
-      <if test="book_leave_date != null">
-        book_leave_date,
+      <if test="leavedate != null">
+        leavedate,
       </if>
-      <if test="book_confirm != null">
-        book_confirm,
+      <if test="confirm != null">
+        confirm,
       </if>
-      <if test="book_status != null">
-        book_status,
+      <if test="status != null">
+        status,
       </if>
-      <if test="book_guide != null">
-        book_guide,
+      <if test="guide != null">
+        guide,
       </if>
-      <if test="book_report_task != null">
-        book_report_task,
+      <if test="report != null">
+        report,
+      </if>
+      <if test="did != null">
+        did,
+      </if>
+      <if test="booklab != null">
+        booklab,
+      </if>
+      <if test="booktea != null">
+        booktea,
+      </if>
+      <if test="bookdevice != null">
+        bookdevice,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+      <if test="bookstudent != null">
+        bookstudent,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="score_id != null">
-        #{score_id,jdbcType=INTEGER},
+      <if test="scid != null">
+        #{scid,jdbcType=INTEGER},
       </if>
-      <if test="lab_id != null">
-        #{lab_id,jdbcType=INTEGER},
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
       </if>
-      <if test="teacher_id != null">
-        #{teacher_id,jdbcType=INTEGER},
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
       </if>
-      <if test="admin_id != null">
-        #{admin_id,jdbcType=INTEGER},
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
       </if>
-      <if test="book_project_title != null">
-        #{book_project_title,jdbcType=VARCHAR},
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
       </if>
-      <if test="book_project_detail != null">
-        #{book_project_detail,jdbcType=VARCHAR},
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
       </if>
-      <if test="book_experiment_date != null">
-        #{book_experiment_date,jdbcType=TIMESTAMP},
+      <if test="startdate != null">
+        #{startdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_human_number != null">
-        #{book_human_number,jdbcType=VARCHAR},
+      <if test="people != null">
+        #{people,jdbcType=VARCHAR},
       </if>
-      <if test="book_teacher_verify != null">
-        #{book_teacher_verify,jdbcType=VARCHAR},
+      <if test="teacherverify != null">
+        #{teacherverify,jdbcType=VARCHAR},
       </if>
-      <if test="book_admin_verify != null">
-        #{book_admin_verify,jdbcType=VARCHAR},
+      <if test="adminverify != null">
+        #{adminverify,jdbcType=VARCHAR},
       </if>
-      <if test="book_report_score != null">
-        #{book_report_score,jdbcType=VARCHAR},
+      <if test="reportscore != null">
+        #{reportscore,jdbcType=VARCHAR},
       </if>
-      <if test="book_enter_password != null">
-        #{book_enter_password,jdbcType=CHAR},
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
       </if>
-      <if test="book_enter_date != null">
-        #{book_enter_date,jdbcType=TIMESTAMP},
+      <if test="enterdate != null">
+        #{enterdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_leave_date != null">
-        #{book_leave_date,jdbcType=TIMESTAMP},
+      <if test="leavedate != null">
+        #{leavedate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_confirm != null">
-        #{book_confirm,jdbcType=BIT},
+      <if test="confirm != null">
+        #{confirm,jdbcType=VARCHAR},
       </if>
-      <if test="book_status != null">
-        #{book_status,jdbcType=VARCHAR},
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
-      <if test="book_guide != null">
-        #{book_guide,jdbcType=VARCHAR},
+      <if test="guide != null">
+        #{guide,jdbcType=VARCHAR},
       </if>
-      <if test="book_report_task != null">
-        #{book_report_task,jdbcType=VARCHAR},
+      <if test="report != null">
+        #{report,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null">
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="booklab != null">
+        #{booklab,jdbcType=VARCHAR},
+      </if>
+      <if test="booktea != null">
+        #{booktea,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdevice != null">
+        #{bookdevice,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bookstudent != null">
+        #{bookstudent,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Book">
     update book
     <set>
-      <if test="score_id != null">
-        score_id = #{score_id,jdbcType=INTEGER},
+      <if test="scid != null">
+        scid = #{scid,jdbcType=INTEGER},
       </if>
-      <if test="lab_id != null">
-        lab_id = #{lab_id,jdbcType=INTEGER},
+      <if test="lid != null">
+        lid = #{lid,jdbcType=INTEGER},
       </if>
-      <if test="teacher_id != null">
-        teacher_id = #{teacher_id,jdbcType=INTEGER},
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
       </if>
-      <if test="admin_id != null">
-        admin_id = #{admin_id,jdbcType=INTEGER},
+      <if test="aid != null">
+        aid = #{aid,jdbcType=INTEGER},
       </if>
-      <if test="book_project_title != null">
-        book_project_title = #{book_project_title,jdbcType=VARCHAR},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="book_project_detail != null">
-        book_project_detail = #{book_project_detail,jdbcType=VARCHAR},
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
       </if>
-      <if test="book_experiment_date != null">
-        book_experiment_date = #{book_experiment_date,jdbcType=TIMESTAMP},
+      <if test="startdate != null">
+        startdate = #{startdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_human_number != null">
-        book_human_number = #{book_human_number,jdbcType=VARCHAR},
+      <if test="people != null">
+        people = #{people,jdbcType=VARCHAR},
       </if>
-      <if test="book_teacher_verify != null">
-        book_teacher_verify = #{book_teacher_verify,jdbcType=VARCHAR},
+      <if test="teacherverify != null">
+        teacherverify = #{teacherverify,jdbcType=VARCHAR},
       </if>
-      <if test="book_admin_verify != null">
-        book_admin_verify = #{book_admin_verify,jdbcType=VARCHAR},
+      <if test="adminverify != null">
+        adminverify = #{adminverify,jdbcType=VARCHAR},
       </if>
-      <if test="book_report_score != null">
-        book_report_score = #{book_report_score,jdbcType=VARCHAR},
+      <if test="reportscore != null">
+        reportscore = #{reportscore,jdbcType=VARCHAR},
       </if>
-      <if test="book_enter_password != null">
-        book_enter_password = #{book_enter_password,jdbcType=CHAR},
+      <if test="password != null">
+        password = #{password,jdbcType=CHAR},
       </if>
-      <if test="book_enter_date != null">
-        book_enter_date = #{book_enter_date,jdbcType=TIMESTAMP},
+      <if test="enterdate != null">
+        enterdate = #{enterdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_leave_date != null">
-        book_leave_date = #{book_leave_date,jdbcType=TIMESTAMP},
+      <if test="leavedate != null">
+        leavedate = #{leavedate,jdbcType=TIMESTAMP},
       </if>
-      <if test="book_confirm != null">
-        book_confirm = #{book_confirm,jdbcType=BIT},
+      <if test="confirm != null">
+        confirm = #{confirm,jdbcType=VARCHAR},
       </if>
-      <if test="book_status != null">
-        book_status = #{book_status,jdbcType=VARCHAR},
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="book_guide != null">
-        book_guide = #{book_guide,jdbcType=VARCHAR},
+      <if test="guide != null">
+        guide = #{guide,jdbcType=VARCHAR},
       </if>
-      <if test="book_report_task != null">
-        book_report_task = #{book_report_task,jdbcType=VARCHAR},
+      <if test="report != null">
+        report = #{report,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null">
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="booklab != null">
+        booklab = #{booklab,jdbcType=VARCHAR},
+      </if>
+      <if test="booktea != null">
+        booktea = #{booktea,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdevice != null">
+        bookdevice = #{bookdevice,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        enddate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bookstudent != null">
+        bookstudent = #{bookstudent,jdbcType=VARCHAR},
       </if>
     </set>
-    where book_id = #{book_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Book">
     update book
-    set score_id = #{score_id,jdbcType=INTEGER},
-      lab_id = #{lab_id,jdbcType=INTEGER},
-      teacher_id = #{teacher_id,jdbcType=INTEGER},
-      admin_id = #{admin_id,jdbcType=INTEGER},
-      book_project_title = #{book_project_title,jdbcType=VARCHAR},
-      book_project_detail = #{book_project_detail,jdbcType=VARCHAR},
-      book_experiment_date = #{book_experiment_date,jdbcType=TIMESTAMP},
-      book_human_number = #{book_human_number,jdbcType=VARCHAR},
-      book_teacher_verify = #{book_teacher_verify,jdbcType=VARCHAR},
-      book_admin_verify = #{book_admin_verify,jdbcType=VARCHAR},
-      book_report_score = #{book_report_score,jdbcType=VARCHAR},
-      book_enter_password = #{book_enter_password,jdbcType=CHAR},
-      book_enter_date = #{book_enter_date,jdbcType=TIMESTAMP},
-      book_leave_date = #{book_leave_date,jdbcType=TIMESTAMP},
-      book_confirm = #{book_confirm,jdbcType=BIT},
-      book_status = #{book_status,jdbcType=VARCHAR},
-      book_guide = #{book_guide,jdbcType=VARCHAR},
-      book_report_task = #{book_report_task,jdbcType=VARCHAR}
-    where book_id = #{book_id,jdbcType=INTEGER}
+    set scid = #{scid,jdbcType=INTEGER},
+      lid = #{lid,jdbcType=INTEGER},
+      tid = #{tid,jdbcType=INTEGER},
+      aid = #{aid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      startdate = #{startdate,jdbcType=TIMESTAMP},
+      people = #{people,jdbcType=VARCHAR},
+      teacherverify = #{teacherverify,jdbcType=VARCHAR},
+      adminverify = #{adminverify,jdbcType=VARCHAR},
+      reportscore = #{reportscore,jdbcType=VARCHAR},
+      password = #{password,jdbcType=CHAR},
+      enterdate = #{enterdate,jdbcType=TIMESTAMP},
+      leavedate = #{leavedate,jdbcType=TIMESTAMP},
+      confirm = #{confirm,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      guide = #{guide,jdbcType=VARCHAR},
+      report = #{report,jdbcType=VARCHAR},
+      did = #{did,jdbcType=INTEGER},
+      booklab = #{booklab,jdbcType=VARCHAR},
+      booktea = #{booktea,jdbcType=VARCHAR},
+      bookdevice = #{bookdevice,jdbcType=VARCHAR},
+      enddate = #{enddate,jdbcType=TIMESTAMP},
+      bookstudent = #{bookstudent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

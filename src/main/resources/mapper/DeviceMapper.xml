@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.libinyu.book.mapper.DeviceMapper">
   <resultMap id="BaseResultMap" type="com.libinyu.book.pojo.Device">
-    <id column="device_id" jdbcType="INTEGER" property="device_id" />
-    <result column="lab_id" jdbcType="INTEGER" property="lab_id" />
-    <result column="device_name" jdbcType="VARCHAR" property="device_name" />
-    <result column="device_status" jdbcType="VARCHAR" property="device_status" />
-    <result column="device_price" jdbcType="VARCHAR" property="device_price" />
-    <result column="device_purchase_date" jdbcType="TIMESTAMP" property="device_purchase_date" />
-    <result column="device_open" jdbcType="BIT" property="device_open" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
+    <result column="open" jdbcType="VARCHAR" property="open" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -40,8 +40,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    device_id, lab_id, device_name, device_status, device_price, device_purchase_date, 
-    device_open
+    id, lid, name, status, price, date, open
   </sql>
   <select id="selectByExample" parameterType="com.libinyu.book.pojo.DeviceExample" resultMap="BaseResultMap">
     select
@@ -62,95 +61,95 @@
     select 
     <include refid="Base_Column_List" />
     from device
-    where device_id = #{device_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from device
-    where device_id = #{device_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="device_id" keyProperty="device_id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
-    insert into device (lab_id, device_name, device_status, 
-      device_price, device_purchase_date, device_open
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
+    insert into device (lid, name, status, 
+      price, date, open
       )
-    values (#{lab_id,jdbcType=INTEGER}, #{device_name,jdbcType=VARCHAR}, #{device_status,jdbcType=VARCHAR}, 
-      #{device_price,jdbcType=VARCHAR}, #{device_purchase_date,jdbcType=TIMESTAMP}, #{device_open,jdbcType=BIT}
+    values (#{lid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, #{open,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="device_id" keyProperty="device_id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.libinyu.book.pojo.Device" useGeneratedKeys="true">
     insert into device
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="lab_id != null">
-        lab_id,
+      <if test="lid != null">
+        lid,
       </if>
-      <if test="device_name != null">
-        device_name,
+      <if test="name != null">
+        name,
       </if>
-      <if test="device_status != null">
-        device_status,
+      <if test="status != null">
+        status,
       </if>
-      <if test="device_price != null">
-        device_price,
+      <if test="price != null">
+        price,
       </if>
-      <if test="device_purchase_date != null">
-        device_purchase_date,
+      <if test="date != null">
+        date,
       </if>
-      <if test="device_open != null">
-        device_open,
+      <if test="open != null">
+        open,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="lab_id != null">
-        #{lab_id,jdbcType=INTEGER},
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
       </if>
-      <if test="device_name != null">
-        #{device_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="device_status != null">
-        #{device_status,jdbcType=VARCHAR},
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
-      <if test="device_price != null">
-        #{device_price,jdbcType=VARCHAR},
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
       </if>
-      <if test="device_purchase_date != null">
-        #{device_purchase_date,jdbcType=TIMESTAMP},
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
       </if>
-      <if test="device_open != null">
-        #{device_open,jdbcType=BIT},
+      <if test="open != null">
+        #{open,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.libinyu.book.pojo.Device">
     update device
     <set>
-      <if test="lab_id != null">
-        lab_id = #{lab_id,jdbcType=INTEGER},
+      <if test="lid != null">
+        lid = #{lid,jdbcType=INTEGER},
       </if>
-      <if test="device_name != null">
-        device_name = #{device_name,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="device_status != null">
-        device_status = #{device_status,jdbcType=VARCHAR},
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="device_price != null">
-        device_price = #{device_price,jdbcType=VARCHAR},
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
       </if>
-      <if test="device_purchase_date != null">
-        device_purchase_date = #{device_purchase_date,jdbcType=TIMESTAMP},
+      <if test="date != null">
+        date = #{date,jdbcType=TIMESTAMP},
       </if>
-      <if test="device_open != null">
-        device_open = #{device_open,jdbcType=BIT},
+      <if test="open != null">
+        open = #{open,jdbcType=VARCHAR},
       </if>
     </set>
-    where device_id = #{device_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.libinyu.book.pojo.Device">
     update device
-    set lab_id = #{lab_id,jdbcType=INTEGER},
-      device_name = #{device_name,jdbcType=VARCHAR},
-      device_status = #{device_status,jdbcType=VARCHAR},
-      device_price = #{device_price,jdbcType=VARCHAR},
-      device_purchase_date = #{device_purchase_date,jdbcType=TIMESTAMP},
-      device_open = #{device_open,jdbcType=BIT}
-    where device_id = #{device_id,jdbcType=INTEGER}
+    set lid = #{lid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      open = #{open,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

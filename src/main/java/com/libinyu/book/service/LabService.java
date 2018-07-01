@@ -17,4 +17,6 @@ public interface LabService {
     Lab get(int id);
 
     void update(Lab lab);
+
+    List<Lab> open();
 }
